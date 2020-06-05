@@ -27,6 +27,8 @@ UI.AddLabel("_________________________________________")
 //Runs every frame, main function.
 function main() {
     if (World.GetServerString() != "") { 
+        //Declaring Screensize
+        ss = Render.GetScreenSize();
         if (UI.GetValue("Misc", "JAVASCRIPT", "Script items", "Enable Force Hitbox On Key")) {
             
             //Declaring what each hotkey does/is linked to.
@@ -39,7 +41,7 @@ function main() {
             //Detecting if the hotkeys are pressed, if not make a small indicator in the bottom left corner.
             if (forceHeadOnly) {
                 font = Render.AddFont("Arial Black", 15, 100);
-                Render.StringCustom(10, 1000, 0, "HEAD", [ 51, 204, 51, 255 ], font );
+                Render.StringCustom(10, ss[1] - 80, 0, "HEAD", [ 51, 204, 51, 255 ], font );
                 UI.SetValue("Rage", "AUTOSNIPER", "Targeting", "Hitboxes", 1)
                 UI.SetValue("Rage", "AWP", "Hitboxes", 1)
                 UI.SetValue("Rage", "SCOUT", "Hitboxes", 1)
@@ -48,7 +50,7 @@ function main() {
                 UI.SetValue("Rage", "GENERAL", "Hitboxes", 1)
             } else if (forceBodyOnly) {
                 font = Render.AddFont("Arial Black", 15, 100);
-                Render.StringCustom(10, 1000, 0, "BODY", [ 51, 204, 51, 255 ], font );
+                Render.StringCustom(10, ss[1] - 80, 0, "BODY", [ 51, 204, 51, 255 ], font );
                 UI.SetValue("Rage", "AUTOSNIPER", "Targeting", "Hitboxes", bodyHitboxes)
                 UI.SetValue("Rage", "AWP", "Hitboxes", bodyHitboxes)
                 UI.SetValue("Rage", "SCOUT", "Hitboxes", bodyHitboxes)
@@ -57,7 +59,7 @@ function main() {
                 UI.SetValue("Rage", "GENERAL", "Hitboxes", bodyHitboxes)
             } else {
                 font = Render.AddFont("Arial Black", 15, 100);
-                Render.StringCustom(10, 1000, 0, "NORMAL", [ 255, 64, 0, 255 ], font );
+                Render.StringCustom(10, ss[1] - 80, 0, "NORMAL", [ 255, 64, 0, 255 ], font );
                 UI.SetValue("Rage", "AUTOSNIPER", "Hitboxes", autoHitboxes)
                 UI.SetValue("Rage", "AWP", "Hitboxes", awpHitboxes)
                 UI.SetValue("Rage", "SCOUT", "Hitboxes", scoutHitboxes)
