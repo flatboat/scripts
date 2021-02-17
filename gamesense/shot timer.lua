@@ -13,6 +13,7 @@ ui.set_visible(xslider, false)
 ui.set_visible(yslider, false)
 ui.set_visible(hslider, false)
 ui.set_visible(enableSound, false)
+ui.set_visible(soundVolume, false)
 
 --the real code haha lol
 local function on_paint()
@@ -67,7 +68,7 @@ local function on_paint()
         end
     else
         ui.set_visible(hslider, false)
-        ui.set_visible(enableSound, false)
+        ui.set_visible(soundVolume, false)
     end
 end
 
