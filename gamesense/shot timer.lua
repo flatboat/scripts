@@ -46,6 +46,12 @@ local function on_paint()
             if timeToShoot > 1.9 then
                 timeToShoot = 0
             end
+
+            if ui.get(enableSound) then
+                ui.set_visible(soundVolume, true)
+            else
+                ui.set_visible(soundVolume, false)
+            end
             
             if timeToShoot == 0 and bPlaySound == true and ui.get(enableSound) then
                 client.exec("playvol ui/beep07 " .. ui.get(soundVolume) / 100)
